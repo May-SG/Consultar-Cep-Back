@@ -68,5 +68,5 @@ Interface front-end em Angular para consumo desta API.
 Testes unitários com JUnit.
 
 ✉️ Contato
-Desenvolvido por Mayara Silva – **LinkedIn:** [in/Mey-Silva](www.linkedin.com/in/mey-silva) – **GitHub**  [May-SG]((https://github.com/May-SG))
+Desenvolvido por Mayara Silva – **LinkedIn:** [in/Mey-Silva](www.linkedin.com/in/mey-silva) – **GitHub**  [in/May-SG]((https://github.com/May-SG))
   
