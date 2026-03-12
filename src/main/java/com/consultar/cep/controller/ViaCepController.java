@@ -3,6 +3,9 @@ package com.consultar.cep.controller;
 import com.consultar.cep.model.Endereco;
 import com.consultar.cep.service.ViaCepRestService;
 import com.consultar.cep.service.ViaCepWebClientService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,18 +25,14 @@ public class ViaCepController {
         this.clientService = clientService;
     }
 
-    @GetMapping("/Get")
-    public String get() {
-        return "request Get";
+    @GetMapping("/rest/cep/{cep}")
+    public ResponseEntity<Endereco> consultarCepRest(@Valid @PathVariable String cep) {
+        return new ResponseEntity<>(restService.buscarEnderecoPorCep(cep),
+                HttpStatus.OK);
     }
 
-    @GetMapping("/RestCep/{cep}")
-    public Endereco consultarCepRest(@PathVariable String cep) {
-        return restService.buscarEnderecoPorCep(cep);
-    }
-
-    @GetMapping("/ClientCep/{cep}")
-    public Mono<Endereco> consultarCepClient(@PathVariable String cep) {
+    @GetMapping("/client/cep/{cep}")
+    public Mono<Endereco> consultarCepClient(@Valid @PathVariable String cep) {
         return clientService.buscarEnderecoPorCep(cep);
     }
 
