@@ -14,8 +14,11 @@ public class ViaCepRestService {
     private static final String VIACEP_URL =
             "https://viacep.com.br/ws/%s/json/";
 
-    @Autowired
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
+
+    public ViaCepRestService(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     @Cacheable("enderecos")
     public Endereco buscarEnderecoPorCep(String cep) {
