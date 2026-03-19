@@ -1,5 +1,6 @@
 package com.consultar.cep.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Endereco {
 
     @Pattern(regexp = "^[0-9]{8}&",
@@ -26,5 +28,6 @@ public class Endereco {
     private int gia;
     private int ddd;
     private int siafi;
+    private boolean erro;
 
 }
